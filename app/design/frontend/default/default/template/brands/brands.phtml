@@ -1,1 +1,15 @@
-<h2><?php echo $this->getBrands(); ?></h2>
+<?php
+$brands = $this->getBrands();
+echo '<p>'.var_dump($brands).'</p>';
+if ( $brands && count($brands) > 0 ) 
+{
+  foreach ( $brands as $brand ) :
+    echo '<h3><a href="'.$this->getUrl('brands?id='.$brand['brands_id']).'">Name: '.$brand['brand_name'].'</a></h3>';
+    echo '<p><strong>Location: '.$brand['brand_location'].'</strong></p>';
+    echo '<p>Desciption: '.$brand['brand_description'].'</p><hr />';
+  endforeach;
+}
+else
+{
+  print 'We don\'t have any brands here right now. Please try again later.';
+}

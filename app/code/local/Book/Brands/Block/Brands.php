@@ -7,7 +7,9 @@ class Book_Brands_Block_Brands extends Mage_Core_Block_Template
   }
   public function getBrands()     
   {
-  Mage::log("brands get retrieved here");
-    return 'Brands will go here';
+    Mage::log("brands get retrieved here");
+	$brands = Mage::registry("brands");
+	Mage::log($brands);
+    return $brands;
   }
 }
